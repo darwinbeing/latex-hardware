@@ -3,7 +3,7 @@
 %-                           LaTeX Template                                -%
 %-                                                                         -%
 %---------------------------------------------------------------------------%
-%- Copyright (C) Huangrui Mo <huangrui.mo@gmail.com> 
+%- Copyright (C) Huangrui Mo <huangrui.mo@gmail.com>
 %- This is free software: you can redistribute it and/or modify it
 %- under the terms of the GNU General Public License as published by
 %- the Free Software Foundation, either version 3 of the License, or
@@ -41,7 +41,10 @@
 %- [list]% provide enhanced list environments for algorithm and coding
 %- [math]% enable some extra math packages
 \usepackage{Style/artracom}% user defined commands
-%---------------------------------------------------------------------------%
+\usepackage{amsmath}
+\usepackage[siunitx]{circuitikz}
+\usepackage{float}
+% ---------------------------------------------------------------------------%
 %->> Document inclusion
 %---------------------------------------------------------------------------%
 %\includeonly{Tex/Chap_1,...,Tex/Chap_N}% selected files compilation
@@ -54,13 +57,13 @@
 %-
 \frontmatter% initialize the environment
 \input{Tex/Frontpages}% title page, abstract, dedication
-\intotoc{\contentsname}% add link to contents table and bookmark
+% \intotoc{\contentsname}% add link to contents table and bookmark
 \tableofcontents% contents catalog
-\intotoc{\listfigurename}% add link to contents table and bookmark
-\listoffigures% figures catalog
-\intotoc{\listtablename}% add link to contents table and bookmark
-\listoftables% tables catalog
-\input{Tex/Prematter}% list of symbols, preface content
+% \intotoc{\listfigurename}% add link to contents table and bookmark
+% \listoffigures% figures catalog
+% \intotoc{\listtablename}% add link to contents table and bookmark
+% \listoftables% tables catalog
+% \input{Tex/Prematter}% list of symbols, preface content
 %-
 %-> Mainmatter
 %-
@@ -69,16 +72,15 @@
 %-
 %-> Appendix
 %-
-\cleardoublepage%
-\appendix% initialize the environment
-\input{Tex/Appendix}% appendix content
+% \cleardoublepage%
+% \appendix% initialize the environment
+% \input{Tex/Appendix}% appendix content
 %-
 %-> Backmatter: bibliography, glossary, index
 %-
-\backmatter% initialize the environment
-\intotoc{\bibname}% add link to contents table and bookmark
-\bibliography{Biblio/ref}% bibliography
-\input{Tex/Backmatter}% other information
+% \backmatter% initialize the environment
+% \intotoc{\bibname}% add link to contents table and bookmark
+% \bibliography{Biblio/ref}% bibliography
+% \input{Tex/Backmatter}% other information
 \end{document}
 %---------------------------------------------------------------------------%
-

@@ -59,7 +59,7 @@ fi
 #-
 #-> Set LaTeX environmental variables to add subdirs into search path
 #-
-export TEXINPUTS=".//:$TEXINPUTS" # paths to locate .tex 
+export TEXINPUTS=".//:$TEXINPUTS" # paths to locate .tex
 export BIBINPUTS=".//:$BIBINPUTS" # paths to locate .bib
 export BSTINPUTS=".//:$BSTINPUTS" # paths to locate .bst
 #---------------------------------------------------------------------------#
@@ -103,4 +103,3 @@ $PDFviewer ./$Tmp/"$FileName".pdf || exit
 echo "---------------------------------------------------------------------------"
 echo "$TexCompiler $BibCompiler "$FileName".tex finished..."
 echo "---------------------------------------------------------------------------"
-

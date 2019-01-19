@@ -3,7 +3,7 @@
 %-                           Document Class                                -%
 %-                                                                         -%
 %---------------------------------------------------------------------------%
-%- Copyright (C) Huangrui Mo <huangrui.mo@gmail.com> 
+%- Copyright (C) Huangrui Mo <huangrui.mo@gmail.com>
 %- This is free software: you can redistribute it and/or modify it
 %- under the terms of the GNU General Public License as published by
 %- the Free Software Foundation, either version 3 of the License, or
@@ -99,7 +99,7 @@
 \setlength{\marginparsep}{0pt}% width of space between body text and margin notes
 %- part two -- vertical heights
 %- top height + textheight + bottom height = paperheight
-%- top height = 1.0in (fixed) + voffset + topmargin + headheight + headsep 
+%- top height = 1.0in (fixed) + voffset + topmargin + headheight + headsep
 \setlength{\textheight}{240mm}% set required text height first
 \setlength{\voffset}{-20mm}% set a minimum header height
 \setlength{\headheight}{15pt}% set a minimum header height
@@ -129,10 +129,11 @@
 %-
 \newcommand\confidential[1]{\def\UCAS@value@confidential{#1}}
 \newcommand\schoollogo[2]{\def\UCAS@value@schoollogo{\includegraphics[#1]{#2}}}
-\renewcommand\title[2][\UCAS@value@title]{%
-    \def\UCAS@value@title{#2}
-    %\def\UCAS@value@titlemark{\MakeUppercase{#1}}}
-    \def\UCAS@value@titlemark{#1}}
+% \renewcommand\title[2][\UCAS@value@title]{%
+%     \def\UCAS@value@title{#2}
+%     %\def\UCAS@value@titlemark{\MakeUppercase{#1}}}
+%     \def\UCAS@value@titlemark{#1}}
+\renewcommand\title[1]{\def\UCAS@value@title{#1}}
 \def\@title{\UCAS@value@titlemark}
 \renewcommand\author[1]{\def\UCAS@value@author{#1}}
 \newcommand\advisor[1]{\def\UCAS@value@advisor{#1}}
@@ -146,70 +147,32 @@
 %-> Redefine Chinese style
 %-
 \renewcommand\maketitle{%
-    \cleardoublepage
-    \thispagestyle{empty}
+    % \cleardoublepage
+    % \thispagestyle{empty}
+    \newpage
+    \null
+    \vskip 2.575in
     \begin{center}
-        \bfseries\zihao{4}\songti
-        \ifUCAS@mjinfo
-            \hfill{} {\bfseries\zihao{4}\songti\UCAS@label@confidential \CJKunderline{\hbox to 50pt{\hfill\zihao{5}\songti\UCAS@value@confidential\hfill}}}
-        \else
-            \hfill{} {}
-        \fi
+        {\bfseries\zihao{1}\heiti \UCAS@value@title \par}
+        \vspace*{24pt}
+        {
+          \large
+          \lineskip .5em
+          \begin{tabular}[t]{c}
+            \bfseries\zihao{4}\songti \UCAS@value@author
+          \end{tabular}
+          \par
+        }
 
-        \vspace*{\stretch{4}}
-
-        {\UCAS@value@schoollogo}
-
-        \vspace*{\stretch{2}}
-
-        {\bfseries\zihao{1}\heiti \CJKunderline*[thickness=2.5pt]{\UCAS@value@degree\UCAS@label@thesis}}
-
-        \vspace*{\stretch{3}}
-
-        {\bfseries\zihao{3}\heiti \CJKunderline*[thickness=1.5pt]{\ \UCAS@value@title\ }}
-
-        \vspace*{\stretch{3}}
-
-        \def\tabcolsep{1pt}
-        \def\arraystretch{1.4}
-        \begin{tabular}{lc}
-            \bfseries\zihao{4}\songti
-            \UCAS@label@author & \CJKunderline*[thickness=1.2pt]{\hbox to 350pt{\hfill\hspace*{-3em}\UCAS@value@author\hfill}}\\
-            \UCAS@label@advisor & \CJKunderline*[thickness=1.2pt]{\hbox to 350pt{\hfill\hspace*{-3em}\UCAS@value@advisor\hfill}}\\
-            & \CJKunderline*[thickness=1.2pt]{\hbox to 350pt{\hfill\hspace*{-3em}\UCAS@value@advisorsec\hfill}}\\
-            \UCAS@label@degree & \CJKunderline*[thickness=1.2pt]{\hbox to 350pt{\hfill\hspace*{-3em}\UCAS@value@degreetype\UCAS@value@degree\hfill}}\\
-            \UCAS@label@major & \CJKunderline*[thickness=1.2pt]{\hbox to 350pt{\hfill\hspace*{-3em}\UCAS@value@major\hfill}}\\
-            \UCAS@label@institute & \CJKunderline*[thickness=1.2pt]{\hbox to 350pt{\hfill\hspace*{-3em}\UCAS@value@institute\hfill}}\\
-        \end{tabular}
-
+        % additional small space at the end of the author name
+        \vskip .5em
+        % additional empty line at the end of the title block
+        \vspace*{12pt}
+        % \newpage
         \vspace*{\stretch{5}}
-
         {\bfseries\zihao{4}\songti\UCAS@value@chinesedate}
-
-        \vspace*{\stretch{3}}
+        % \vspace*{\stretch{3}}
     \end{center}
-    \clearpage
-    \if@twoside
-        \thispagestyle{empty}
-        \ifUCAS@versioninfo
-            \vspace*{\stretch{1}}
-            \begin{footnotesize}
-                \noindent
-                Draft Version (\today)
-            \end{footnotesize}
-        \fi
-        \cleardoublepage[empty]
-    \else
-        \ifUCAS@versioninfo
-            \thispagestyle{empty}
-            \vspace*{\stretch{1}}
-            \begin{footnotesize}
-                \noindent
-                Draft Version (\today)
-            \end{footnotesize}
-            \cleardoublepage[empty]
-        \fi
-    \fi
 }
 %-
 %-> English item commands
@@ -378,4 +341,3 @@
 \fi}
 %---------------------------------------------------------------------------%
 \endinput
-
